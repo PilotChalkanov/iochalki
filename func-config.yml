@@ -1,0 +1,2 @@
+base-configs:
+  schedule: 0 0 7-15 * * *
