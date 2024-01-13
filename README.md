@@ -17,7 +17,7 @@ These instructions will help you get a copy of the project up and running on you
 
 What things you need to install the software and how to install them:
 
-##License
+## License
 MIT License
 
 Copyright (c) 2024 Nikolay Chalkanov
