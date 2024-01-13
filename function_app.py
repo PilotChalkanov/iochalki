@@ -49,6 +49,6 @@ def control_humidifier(myTimer: func.TimerRequest) -> None:
     payload = {"commands": [{"code": "switch_1", "value": switch_on}]}
     plug_command_endpoint = f"{DEVICES_ENDPOINT}/{SMART_PLUG_ID}/commands"
     response = openapi.post(path=plug_command_endpoint, body=payload)
-    logging.info(response)
+    logging.info(f"SUCCESS. Device status: {response}")
 
     
