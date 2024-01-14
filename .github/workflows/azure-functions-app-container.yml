@@ -42,7 +42,7 @@ jobs:
       run: |
         # If your function app project is not located in your repository's root
         # Please change the path to your directory for docker build
-        docker build . -t ${{ env.REGISTRY }}/${{ env.NAMESPACE }}/${{ env.IMAGE }}:${{ env.TAG }}
+        docker build . -t ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.TAG }}
         docker push ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.TAG }}
 
     - name: 'Run Azure Functions Container Action'
@@ -50,7 +50,7 @@ jobs:
       id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        image: ${{ env.REGISTRY }}/${{ env.NAMESPACE }}/${{ env.IMAGE }}:${{ env.TAG }}
+        image: ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.TAG }}
 
     # If you want to display or use the functionapp url, then uncomment the task below
     #- name: 'Published functionapp url'
