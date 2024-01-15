@@ -36,11 +36,11 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
-    - name: 'Import GPG Key'
-      uses: crazy-max/ghaction-import-gpg@v1
-      env:
-        GPG_PRIVATE_KEY: ${{ secrets.GPG_KEY }}
-        PASSPHRASE: ${{ secrets.GPG_PASS }}
+    # - name: 'Import GPG Key'
+    #   uses: crazy-max/ghaction-import-gpg@v1
+    #   env:
+    #     GPG_PRIVATE_KEY: ${{ secrets.GPG_KEY }}
+    #     PASSPHRASE: ${{ secrets.GPG_PASS }}
 
     - name: 'Compose Customized Docker Image'
       shell: bash
