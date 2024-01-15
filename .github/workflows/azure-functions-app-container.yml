@@ -44,7 +44,7 @@ jobs:
         login-server: ${{ env.LOGIN_SERVER }}
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}        
-    
+
     - name: 'Compose Customized Docker Image'
       shell: bash
       run: |        
