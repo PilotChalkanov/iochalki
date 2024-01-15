@@ -28,7 +28,7 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-        
+
     - name: 'Import GPG Key'
       uses: crazy-max/ghaction-import-gpg@v6
       with:
@@ -43,7 +43,7 @@ jobs:
       with:
         login-server: ${{ env.LOGIN_SERVER }}
         username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}        
 
     - name: 'Compose Customized Docker Image'
       shell: bash
