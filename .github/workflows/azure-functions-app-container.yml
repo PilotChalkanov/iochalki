@@ -12,8 +12,7 @@ permissions:
 env:
   AZURE_FUNCTIONAPP_NAME: 'iochalki'   # set this to your function app name on Azure
   LOGIN_SERVER: 'docker.io'              # set this to login server for your private container registry (e.g. 'contoso.azurecr.io', 'index.docker.io' )
-  REGISTRY: 'nikchalkanov'                 # set this to proper value for REGISTRY
-  # NAMESPACE: 'your-namespace'               # set this to proper value for NAMESPACE
+  REGISTRY: 'nikchalkanov'                 # set this to proper value for REGISTRY  
   IMAGE: 'iochalki'                       # set this to proper value for IMAGE
   TAG: 'v0.1.0'                           # set this to proper value for TAG
 
@@ -39,9 +38,7 @@ jobs:
 
     - name: 'Compose Customized Docker Image'
       shell: bash
-      run: |
-        # If your function app project is not located in your repository's root
-        # Please change the path to your directory for docker build
+      run: |        
         docker build . -t ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.TAG }}
         docker push ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.TAG }}
 
@@ -51,11 +48,10 @@ jobs:
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         image: ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.TAG }}
-
-    # If you want to display or use the functionapp url, then uncomment the task below
-    #- name: 'Published functionapp url'
-    #  run: |
-    #    echo "${{ steps.fa.outputs.app-url }}"
+   
+    - name: 'Published functionapp url'
+     run: |
+       echo "${{ steps.fa.outputs.app-url }}"
 
     - name: Azure logout
       run: |
