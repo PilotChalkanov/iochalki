@@ -40,9 +40,7 @@ jobs:
       with:        
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_TOKEN }}
-
-    - run: cat ${{ env.DOCKER_CONFIG }}/config.json
-
+    
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
