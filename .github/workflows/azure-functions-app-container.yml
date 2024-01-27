@@ -40,7 +40,9 @@ jobs:
       with:
         login-server: ${{ env.LOGIN_SERVER }}
         username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}        
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    - run: cat ${{ env.DOCKER_CONFIG }}/config.json
 
     - name: Build and push
       uses: docker/build-push-action@v5
